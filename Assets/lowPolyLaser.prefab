@@ -60,8 +60,8 @@ GameObject:
   - 33: {fileID: 3349538}
   - 23: {fileID: 2362878}
   - 114: {fileID: 11420110}
-  - 64: {fileID: 6465642}
   - 54: {fileID: 5452140}
+  - 65: {fileID: 6557582}
   m_Layer: 2
   m_Name: beam
   m_TagString: Untagged
@@ -75,12 +75,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .71984607, y: .40807128, z: 26.176506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 476282}
-  m_RootOrder: 0
+  m_Father: {fileID: 477916}
+  m_RootOrder: 1
 --- !u!4 &470110
 Transform:
   m_ObjectHideFlags: 1
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134234}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 3.6500001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477916}
@@ -103,8 +103,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0, z: .43750006}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 434352}
+  m_Children: []
   m_Father: {fileID: 477916}
   m_RootOrder: 0
 --- !u!4 &477916
@@ -118,6 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 476282}
+  - {fileID: 434352}
   m_Father: {fileID: 470110}
   m_RootOrder: 0
 --- !u!23 &2362878
@@ -197,8 +197,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!64 &6465642
-MeshCollider:
+--- !u!65 &6557582
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -207,8 +207,8 @@ MeshCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 9b2ca90a4cb266a46b8f39db204bf94e, type: 3}
+  m_Size: {x: .0500000007, y: .0500000007, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: .0250000004}
 --- !u!114 &11420110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ec5ae81715c8a4a91483c87b9bd40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamRotationSpeed: 400
-  beamExtendSpeed: 10
+  beamRotationSpeed: 600
+  beamExtendSpeed: 15
   zScaleFactor: 20
   distanceToHitPoint: 0
 --- !u!198 &19821280
@@ -1289,8 +1289,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123670}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 063480c5c73a34348b8cae1242fcedbd, type: 2}
   m_SubsetIndices: 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class LowPolyLaser : MonoBehaviour
+public class LowPolyLaserGun : MonoBehaviour
 {
     GameObject beamHitParticles;
     ParticleSystem bhp;
@@ -22,7 +22,7 @@ public class LowPolyLaser : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out hit) && (Input.GetMouseButton(0)))
         {
             distanceToHitPoint = Vector3.Distance(transform.position, hit.point);
 
@@ -44,6 +44,18 @@ public class LowPolyLaser : MonoBehaviour
         transform.Rotate(0, 0, (Time.deltaTime * beamRotationSpeed));
     }
 
+    // Because the Z scale stays the same and has to travel back when the ray hits and this messed up the TriggerEnter.
+    /*
+    void ShrinkLaserXYbeforeZ()
+    {
+        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, transform.localScale.z), (beamExtendSpeed * Time.deltaTime));
+
+        if (transform.localScale.x == 0)
+            transform.localScale = Vector3.zero;
+    }
+    */
+
+    // With mouse clicking the laser, this is not reliable for making the particles appear... weird, seems fine on the normal lasers though.
     void OnTriggerEnter(Collider other)
     {
         bhp.Play();
